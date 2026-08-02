@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Library Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>📚 Library Management System</h1>
+        <p>Manage your books and members</p>
+    </header>
+
+
+    <main>
+
+        <!-- Dashboard Cards -->
+
+        <section class="dashboard">
+
+            <div class="card">
+                <h2>📚 Books</h2>
+                <p id="bookCount">0</p>
+                <button onclick="showBooks()">View Books</button>
+            </div>
+
+
+            <div class="card">
+                <h2>👤 Members</h2>
+                <p id="memberCount">0</p>
+                <button onclick="showMembers()">View Members</button>
+            </div>
+
+
+            <div class="card">
+                <h2>📖 Borrowed</h2>
+                <p id="borrowedCount">0</p>
+            </div>
+
+        </section>
+
+
+        <!-- Add Book -->
+
+        <section class="form-section">
+
+            <h2>Add New Book</h2>
+
+            <form id="bookForm">
+
+                <input
+                    type="text"
+                    id="bookId"
+                    placeholder="Book ID"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="bookTitle"
+                    placeholder="Book Title"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="bookAuthor"
+                    placeholder="Author"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="bookCategory"
+                    placeholder="Category"
+                    required
+                >
+
+                <button type="submit">
+                    Add Book
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Search -->
+
+        <section class="search-section">
+
+            <h2>Search Books</h2>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search by title or author"
+            >
+
+            <button onclick="searchBooks()">
+                🔍 Search
+            </button>
+
+        </section>
+
+
+        <!-- Book List -->
+
+        <section>
+
+            <h2>Books</h2>
+
+            <div id="bookList">
+
+                <!-- Books will appear here -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
