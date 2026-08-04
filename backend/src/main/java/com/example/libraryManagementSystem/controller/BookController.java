@@ -11,7 +11,6 @@ import java.util.ArrayList;
 @CrossOrigin(origins = "http://127.0.0.1:5500")
 public class BookController {
 
-
     private final Library library;
 
     public BookController(Library library) {
@@ -32,5 +31,27 @@ public class BookController {
 
         return book;
     }
+
+    // BORROW BOOK
+    @PostMapping("/borrow")
+    public String borrowBook(
+            @RequestParam String memberId,
+            @RequestParam String bookId) {
+
+        library.borrowBook(memberId, bookId);
+
+        return "Book borrowed successfully.";
+    }
+
+// RETURN BOOK
+@PostMapping("/return")
+public String returnBook(
+        @RequestParam String memberId,
+        @RequestParam String bookId) {
+
+    library.returnBook(memberId, bookId);
+
+    return "Book returned successfully.";
+}
 
 }

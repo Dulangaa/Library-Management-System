@@ -1,134 +1,183 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Library Management System</title>
 
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-
+  <body>
     <header>
-        <h1>📚 Library Management System</h1>
-        <p>Manage your books and members</p>
+      <h1>📚 Library Management System</h1>
+
+      <p>Manage your books and members</p>
     </header>
 
-
     <main>
+      <!-- ================================= -->
+      <!-- DASHBOARD -->
+      <!-- ================================= -->
 
-        <!-- Dashboard Cards -->
+      <section class="dashboard">
+        <!-- Books Card -->
 
-        <section class="dashboard">
+        <div class="card">
+          <h2>📚 Books</h2>
 
-            <div class="card">
-                <h2>📚 Books</h2>
-                <p id="bookCount">0</p>
-                <button onclick="showBooks()">View Books</button>
-            </div>
+          <p id="bookCount">0</p>
 
+          <button onclick="showBooks()">View Books</button>
+        </div>
 
-            <div class="card">
-                <h2>👤 Members</h2>
-                <p id="memberCount">0</p>
-                <button onclick="showMembers()">View Members</button>
-            </div>
+        <!-- Members Card -->
 
+        <div class="card">
+          <h2>👤 Members</h2>
 
-            <div class="card">
-                <h2>📖 Borrowed</h2>
-                <p id="borrowedCount">0</p>
-            </div>
+          <p id="memberCount">0</p>
 
-        </section>
+          <button onclick="showMembers()">View Members</button>
+        </div>
 
+        <!-- Borrowed Card -->
 
-        <!-- Add Book -->
+        <div class="card">
+          <h2>📖 Borrowed</h2>
 
-        <section class="form-section">
+          <p id="borrowedCount">0</p>
+        </div>
+      </section>
 
-            <h2>Add New Book</h2>
+      <!-- ================================= -->
+      <!-- ADD BOOK -->
+      <!-- ================================= -->
 
-            <form id="bookForm">
+      <section class="form-section">
+        <h2>📚 Add New Book</h2>
 
-                <input
-                    type="text"
-                    id="bookId"
-                    placeholder="Book ID"
-                    required
-                >
+        <form id="bookForm">
+          <input type="text" id="bookId" placeholder="Book ID" required />
 
-                <input
-                    type="text"
-                    id="bookTitle"
-                    placeholder="Book Title"
-                    required
-                >
+          <input type="text" id="bookTitle" placeholder="Book Title" required />
 
-                <input
-                    type="text"
-                    id="bookAuthor"
-                    placeholder="Author"
-                    required
-                >
+          <input type="text" id="bookAuthor" placeholder="Author" required />
 
-                <input
-                    type="text"
-                    id="bookCategory"
-                    placeholder="Category"
-                    required
-                >
+          <input
+            type="text"
+            id="bookCategory"
+            placeholder="Category"
+            required
+          />
 
-                <button type="submit">
-                    Add Book
-                </button>
+          <button type="submit">Add Book</button>
+        </form>
+      </section>
 
-            </form>
+      <!-- ================================= -->
+      <!-- ADD MEMBER -->
+      <!-- ================================= -->
 
-        </section>
+      <section class="form-section">
+        <h2>👤 Add New Member</h2>
 
+        <form id="memberForm">
+          <input type="text" id="memberId" placeholder="Member ID" required />
 
-        <!-- Search -->
+          <input
+            type="text"
+            id="memberName"
+            placeholder="Member Name"
+            required
+          />
 
-        <section class="search-section">
+          <button type="submit">Add Member</button>
+        </form>
+      </section>
 
-            <h2>Search Books</h2>
+      <!-- Borrow Book -->
 
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search by title or author"
-            >
+      <section class="form-section">
+        <h2>📖 Borrow a Book</h2>
 
-            <button onclick="searchBooks()">
-                🔍 Search
-            </button>
+        <form id="borrowForm">
+          <input
+            type="text"
+            id="borrowMemberId"
+            placeholder="Member ID"
+            required
+          />
 
-        </section>
+          <input type="text" id="borrowBookId" placeholder="Book ID" required />
 
+          <button type="submit">Borrow Book</button>
+        </form>
+      </section>
+    
+      <!-- Return Book -->
 
-        <!-- Book List -->
+      <section class="form-section">
+        <h2>🔄 Return a Book</h2>
 
-        <section>
+        <form id="returnForm">
+          <input
+            type="text"
+            id="returnMemberId"
+            placeholder="Member ID"
+            required
+          />
 
-            <h2>Books</h2>
+          <input type="text" id="returnBookId" placeholder="Book ID" required />
 
-            <div id="bookList">
+          <button type="submit">Return Book</button>
+        </form>
+      </section>
+    
 
-                <!-- Books will appear here -->
+      <!-- ================================= -->
+      <!-- SEARCH BOOKS -->
+      <!-- ================================= -->
 
-            </div>
+      <section class="search-section">
+        <h2>🔍 Search Books</h2>
 
-        </section>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search by title or author"
+        />
 
+        <button onclick="searchBooks()">🔍 Search</button>
+      </section>
+
+      <!-- ================================= -->
+      <!-- BOOK LIST -->
+      <!-- ================================= -->
+
+      <section>
+        <h2>📚 Books</h2>
+
+        <div id="bookList">
+          <!-- Books will appear here -->
+        </div>
+      </section>
+
+      <!-- ================================= -->
+      <!-- MEMBER LIST -->
+      <!-- ================================= -->
+
+      <section>
+        <h2>👤 Members</h2>
+
+        <div id="memberList">
+          <!-- Members will appear here -->
+        </div>
+      </section>
     </main>
 
-
     <script src="script.js"></script>
-
-</body>
-
+  </body>
 </html>

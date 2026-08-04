@@ -6,12 +6,12 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background-color: #ebf7f7;
     color: #333;
 }
 
 header {
-    background-color: #4b2c82;
+    background-color: #547397;
     color: white;
     padding: 30px;
     text-align: center;
@@ -34,12 +34,12 @@ main {
 }
 
 .card {
-    background-color: white;
+    background-color: rgb(140, 226, 222);
     padding: 25px;
     flex: 1;
     text-align: center;
     border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    box-shadow: 1 4px 10px rgba(206, 52, 52, 0.1);
 }
 
 .card h2 {
@@ -57,7 +57,7 @@ button {
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 7px;
     cursor: pointer;
 }
 
@@ -86,7 +86,7 @@ form {
 
 input {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #0d20cc;
     border-radius: 5px;
 }
 
@@ -97,10 +97,10 @@ input {
 }
 
 .book-card {
-    background-color: white;
+    background-color: rgb(140, 226, 222);
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(27, 60, 204, 0.1);
 }
 
 .book-card h3 {
