@@ -37,10 +37,7 @@ public class BookController {
     public String borrowBook(
             @RequestParam String memberId,
             @RequestParam String bookId) {
-
-        library.borrowBook(memberId, bookId);
-
-        return "Book borrowed successfully.";
+return library.borrowBook(memberId, bookId);
     }
 
 // RETURN BOOK
@@ -49,9 +46,36 @@ public String returnBook(
         @RequestParam String memberId,
         @RequestParam String bookId) {
 
-    library.returnBook(memberId, bookId);
+   return library.returnBook(memberId, bookId);
 
-    return "Book returned successfully.";
+}
+// DELETE BOOK
+@DeleteMapping("/{id}")
+public String deleteBook(@PathVariable String id) {
+
+    library.removeBook(id);
+
+    return "Book deleted successfully.";
 }
 
+@GetMapping("/sort/title")
+public ArrayList<Book> sortBooksByTitle(){
+
+    return library.getSortedBooksByTitle();
+
+}
+
+@GetMapping("/sort/author")
+public ArrayList<Book> sortBooksByAuthor(){
+
+    return library.getSortedBooksByAuthor();
+
+}
+
+@GetMapping("/sort/category")
+public ArrayList<Book> sortBooksByCategory(){
+
+    return library.getSortedBooksByCategory();
+
+}
 }

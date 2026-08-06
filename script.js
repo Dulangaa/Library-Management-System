@@ -158,7 +158,7 @@ function displayBooks() {
         const title =
             document.createElement("h3");
 
-        title.textContent =
+        title.textContent ="📗 " + 
             book.title;
 
 
@@ -186,30 +186,83 @@ function displayBooks() {
             book.category;
 
 
-        const status =
-            document.createElement("p");
+        // const status =
+        //     document.createElement("p");
 
-        status.innerHTML =
-            "<strong>Status:</strong> " +
-            (
-                book.available
-                    ? "Available"
-                    : "Borrowed"
-            );
+        // status.innerHTML =
+        //     "<strong>Status:</strong> " +
+        //     (
+        //         book.available
+        //             ? "Available"
+        //             : "Borrowed"
+        //     );
+
+            const status = document.createElement("span");
+
+status.className = book.available 
+    ? "available-badge" 
+    : "borrowed-badge";
+
+status.textContent = book.available 
+    ? "Available" 
+    : "Borrowed";
+
+       // DELETE BUTTON
+const deleteButton = document.createElement("button");
+
+deleteButton.textContent = "🗑 Delete";
+
+deleteButton.onclick = async function() {
+
+    const confirmDelete = confirm(
+        "Are you sure you want to delete this book?"
+    );
+
+    if (!confirmDelete) {
+        return;
+    }
 
 
-        bookCard.appendChild(title);
+    try {
 
-        bookCard.appendChild(id);
+        const response = await fetch(
+            `http://localhost:8080/books/${book.id}`,
+            {
+                method: "DELETE"
+            }
+        );
 
-        bookCard.appendChild(author);
 
-        bookCard.appendChild(category);
+        if (!response.ok) {
+            throw new Error("Delete failed");
+        }
 
-        bookCard.appendChild(status);
+
+        alert("Book deleted successfully 🗑️");
 
 
-        bookList.appendChild(bookCard);
+        loadBooks();
+
+
+    } catch(error) {
+
+        console.log(error);
+
+        alert("Could not delete book.");
+
+    }
+
+};
+
+
+bookCard.appendChild(title);
+bookCard.appendChild(id);
+bookCard.appendChild(author);
+bookCard.appendChild(category);
+bookCard.appendChild(status);
+bookCard.appendChild(deleteButton);
+
+bookList.appendChild(bookCard);
 
     });
 
@@ -313,7 +366,7 @@ function searchBooks() {
 
         bookCard.innerHTML = `
 
-            <h3>${book.title}</h3>
+            <h3> 📗 ${book.title}</h3>
 
             <p>
                 <strong>ID:</strong>
@@ -543,10 +596,10 @@ function displayMembers() {
 
         memberCard.innerHTML = `
 
-            <h3>${member.name}</h3>
+            <h3>👤 ${member.name}</h3>
 
             <p>
-                <strong>Member ID:</strong>
+                <strong> Member ID:</strong>
                 ${member.memberId}
             </p>
 
@@ -614,7 +667,8 @@ document
                 throw new Error("Could not borrow book");
             }
 
-            alert("Book borrowed successfully! 📖");
+            const message = await response.text();
+alert(message);
 
             document
                 .getElementById("borrowForm")
@@ -661,7 +715,8 @@ document
                 throw new Error("Could not return book");
             }
 
-            alert("Book returned successfully! 🔄📚");
+            const message = await response.text();
+alert(message);
 
             document
                 .getElementById("returnForm")
@@ -682,8 +737,141 @@ document
         }
 
     });
+async function sortBooksByTitle(){
+
+    await sortBooks("title");
+
+}
 
 
+async function sortBooksByAuthor(){
+
+    await sortBooks("author");
+
+}
+
+
+async function sortBooksByCategory(){
+
+    await sortBooks("category");
+
+}
+
+
+async function sortBooks(type){
+
+    try{
+
+        const response = await fetch(
+            `http://localhost:8080/books/sort/${type}`
+        );
+
+
+        books = await response.json();
+
+        displayBooks();
+
+
+    }catch(error){
+
+        console.log(error);
+
+        alert("Could not sort books");
+
+    }
+
+}
+
+// BORROW BOOK
+
+document
+.getElementById("borrowForm")
+.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const memberId =
+        document.getElementById("borrowMemberId").value;
+
+    const bookId =
+        document.getElementById("borrowBookId").value;
+
+
+    try {
+
+        const response = await fetch(
+            `http://localhost:8080/books/borrow?memberId=${memberId}&bookId=${bookId}`,
+            {
+                method: "POST"
+            }
+        );
+
+
+        const message = await response.text();
+
+        alert(message);
+
+        document.getElementById("borrowForm").reset();
+
+        loadBooks();
+
+
+    } catch(error) {
+
+        console.error(error);
+
+        alert("Could not borrow book.");
+
+    }
+
+});
+
+
+// RETURN BOOK
+
+document
+.getElementById("returnForm")
+.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+
+    const memberId =
+        document.getElementById("returnMemberId").value;
+
+
+    const bookId =
+        document.getElementById("returnBookId").value;
+
+
+    try {
+
+        const response = await fetch(
+            `http://localhost:8080/books/return?memberId=${memberId}&bookId=${bookId}`,
+            {
+                method: "POST"
+            }
+        );
+
+
+        const message = await response.text();
+
+        alert(message);
+
+        document.getElementById("returnForm").reset();
+
+        loadBooks();
+
+
+    } catch(error) {
+
+        console.error(error);
+
+        alert("Could not return book.");
+
+    }
+
+});
 // =====================================
 // LOAD DATA WHEN PAGE OPENS
 // =====================================

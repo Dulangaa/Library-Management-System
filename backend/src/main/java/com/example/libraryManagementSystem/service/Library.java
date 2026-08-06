@@ -133,12 +133,13 @@ public class Library {
         }else {
             System.out.println("book not exist");
         }
+    }
 //        if (books.remove(id).isAvailable()){
 //            System.out.println("removed successfully");
 //        }else {
 //
 //        }
-    }
+    
     //this is comment because now we hv to cll wht member is borrow the book
 //    public void borrowBooks(String id){
 //        Book book=books.get(id);
@@ -153,20 +154,20 @@ public class Library {
 //
 //        }
 //    }
-    public void borrowBook(String memberId, String bookId){
+    public String borrowBook(String memberId, String bookId){
         Book book=books.get(bookId);
         Member member=members.get(memberId);
 
         if (member == null){
-            System.out.println("Member not found.");
+            return "Member not found.";
         } else if (book == null) {
-            System.out.println("Book not found.");
+            return "Book not found.";
         } else if (!book.isAvailable()) {
-            System.out.println("Book already borrowed.");
+            return "Book already borrowed.";
         }else {
             book.borrow();
             member.borrowBook(book);
-            System.out.println("Book borrowed.");
+            return "Book borrowed successfully.";
         }
     }
 
@@ -183,20 +184,20 @@ public class Library {
 //            System.out.println("return successfully");
 //        }
 //    }
-    public void returnBook(String memberId, String bookId){
+    public String returnBook(String memberId, String bookId){
         Book book=books.get(bookId);
         Member member=members.get(memberId);
 
         if (member == null){
-            System.out.println("Member not found.");
+            return "Member not found.";
         } else if (book == null) {
-            System.out.println("Book not found.");
+            return "Book not found.";
         } else if (book.isAvailable()) {
-            System.out.println("Book already return.");
+            return "Book already returned.";
         }else {
             book.returnBook();
             member.returnBook(book);
-            System.out.println("Book return.");
+            return "Book returned successfully.";
         }
     }
 
@@ -295,6 +296,40 @@ public class Library {
     public ArrayList<Member> getAllMembers() {
         return new ArrayList<>(members.values());
     }
+    public ArrayList<Book> getSortedBooksByTitle(){
+
+    ArrayList<Book> bookList = new ArrayList<>(books.values());
+
+    bookList.sort((b1, b2) ->
+            b1.getTitle().compareToIgnoreCase(b2.getTitle())
+    );
+
+    return bookList;
+}
+
+
+public ArrayList<Book> getSortedBooksByAuthor(){
+
+    ArrayList<Book> bookList = new ArrayList<>(books.values());
+
+    bookList.sort((b1, b2) ->
+            b1.getAuthor().compareToIgnoreCase(b2.getAuthor())
+    );
+
+    return bookList;
+}
+
+
+public ArrayList<Book> getSortedBooksByCategory(){
+
+    ArrayList<Book> bookList = new ArrayList<>(books.values());
+
+    bookList.sort((b1, b2) ->
+            b1.getCategory().compareToIgnoreCase(b2.getCategory())
+    );
+
+    return bookList;
+}
 }
 
 

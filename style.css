@@ -110,3 +110,422 @@ input {
 .book-card p {
     margin: 5px 0;
 }
+
+.book-card,
+.member-card {
+
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    margin: 15px 0;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+    transition: 0.3s;
+
+}
+
+
+.book-card:hover,
+.member-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+
+}
+
+
+.book-card h3,
+.member-card h3 {
+
+    margin-top: 0;
+
+    color: #4b0082;
+
+}
+
+
+.book-card p,
+.member-card p {
+
+    font-size: 16px;
+
+}
+
+
+button {
+
+    border: none;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    background: #6a5acd;
+
+    color: white;
+
+    font-size: 15px;
+
+}
+
+
+button:hover {
+
+    background: #483d8b;
+
+}
+
+body {
+
+    font-family: Arial, sans-serif;
+
+   background: linear-gradient(
+    #f9a8d4,
+    #5ac8db,
+    #f9a8d4
+);
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+header {
+
+    background: linear-gradient(135deg, #6a5acd, #9370db);
+
+    color: white;
+
+    text-align: center;
+
+    padding: 30px;
+
+}
+
+
+header h1 {
+
+    margin: 0;
+
+    font-size: 35px;
+
+}
+
+
+header p {
+
+    font-size: 18px;
+
+}
+
+
+.dashboard {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 20px;
+
+    padding: 30px;
+
+}
+
+
+.card {
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+
+    transition: 0.3s;
+
+}
+
+
+.card:hover {
+
+    transform: scale(1.05);
+
+}
+
+
+.card h2 {
+
+    color: #6a5acd;
+
+}
+
+
+.card p {
+
+    font-size: 35px;
+
+    font-weight: bold;
+
+    margin: 15px;
+
+}
+
+.form-section,
+.search-section,
+.sort-section {
+
+    background: rgba(255,255,255,0.9);
+
+    margin: 30px;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+
+}
+
+
+.form-section h2,
+.search-section h2,
+.sort-section h2 {
+
+    color: #6a5acd;
+
+}
+
+
+input {
+
+    width: 90%;
+
+    padding: 12px;
+
+    margin: 8px 0;
+
+    border-radius: 10px;
+
+    border: 1px solid #ccc;
+
+    font-size: 16px;
+
+}
+
+
+input:focus {
+
+    outline: none;
+
+    border-color: #6a5acd;
+
+    box-shadow: 0 0 5px #9370db;
+
+}
+
+.available-badge {
+
+    display: inline-block;
+
+    background: #22c55e;
+
+    color: white;
+
+    padding: 6px 14px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+}
+
+
+.borrowed-badge {
+
+    display: inline-block;
+
+    background: #ef4444;
+
+    color: white;
+
+    padding: 6px 14px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+}
+
+.member-card h3 {
+
+    color: #6a5acd;
+
+}
+
+
+.member-card p {
+
+    background: #ede9fe;
+
+    display: inline-block;
+
+    padding: 8px 12px;
+
+    border-radius: 15px;
+
+}
+
+.book-card,
+.member-card {
+
+    background: rgba(255, 255, 255, 0.85);
+
+    backdrop-filter: blur(10px);
+
+    border-radius: 25px;
+
+    padding: 25px;
+
+    margin: 20px;
+
+    box-shadow: 
+        0 10px 25px rgba(0,0,0,0.15);
+
+    transition: all 0.4s ease;
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+}
+
+
+.book-card:hover,
+.member-card:hover {
+
+    transform: translateY(-12px) scale(1.03);
+
+    box-shadow:
+        0 20px 40px rgba(106,90,205,0.35);
+
+}
+
+
+.book-card h3,
+.member-card h3 {
+
+    font-size: 24px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.book-card p,
+.member-card p {
+
+    color: #444;
+
+    font-size: 16px;
+
+    margin: 8px 0;
+
+}
+
+
+#bookList,
+#memberList {
+
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(260px, 1fr)
+    );
+
+    gap: 20px;
+
+    padding: 20px;
+
+}
+
+/* Available badge */
+
+.available-badge {
+
+    background-color: #4CAF50;
+
+    color: white;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+
+    display: inline-block;
+
+}
+
+
+/* Borrowed badge */
+
+.borrowed-badge {
+
+    background-color: #e74c3c;
+
+    color: white;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+
+    display: inline-block;
+
+}
+
+
+/* Delete button */
+
+.book-card button {
+
+    margin-top: 15px;
+
+    background-color: #ff4d4d;
+
+    color: white;
+
+    border: none;
+
+    padding: 8px 18px;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+}
+
+
+.book-card button:hover {
+
+    background-color: #cc0000;
+
+}
