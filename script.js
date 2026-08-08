@@ -1,14 +1,10 @@
-// =====================================
-// GLOBAL VARIABLES
-// =====================================
+// global variables to store books and members
 
 let books = [];
 let members = [];
 
 
-// =====================================
-// LOAD BOOKS FROM JAVA BACKEND
-// =====================================
+// load books from Java backend
 
 async function loadBooks() {
 
@@ -38,9 +34,7 @@ async function loadBooks() {
 }
 
 
-// =====================================
-// ADD BOOK
-// =====================================
+// add book to Java backend
 
 document.getElementById("bookForm").addEventListener(
     "submit",
@@ -122,9 +116,7 @@ document.getElementById("bookForm").addEventListener(
 );
 
 
-// =====================================
-// DISPLAY BOOKS
-// =====================================
+//display books in the dashboard
 
 function displayBooks() {
 
@@ -269,9 +261,7 @@ bookList.appendChild(bookCard);
 }
 
 
-// =====================================
-// UPDATE BOOK DASHBOARD
-// =====================================
+// update book dashboard
 
 function updateDashboard() {
 
@@ -297,9 +287,7 @@ function updateDashboard() {
 }
 
 
-// =====================================
-// SEARCH BOOKS
-// =====================================
+// search books by title, author, or category
 
 function searchBooks() {
 
@@ -402,9 +390,8 @@ function searchBooks() {
 }
 
 
-// =====================================
+
 // VIEW BOOKS BUTTON
-// =====================================
 
 function showBooks() {
 
@@ -412,10 +399,7 @@ function showBooks() {
 
 }
 
-
-// =====================================
-// LOAD MEMBERS FROM JAVA BACKEND
-// =====================================
+//load members from Java backend
 
 async function loadMembers() {
 
@@ -464,9 +448,7 @@ async function loadMembers() {
 }
 
 
-// =====================================
-// ADD MEMBER
-// =====================================
+// add member to Java backend
 
 document
     .getElementById("memberForm")
@@ -561,9 +543,7 @@ document
     );
 
 
-// =====================================
-// DISPLAY MEMBERS
-// =====================================
+// display members in the dashboard
 
 function displayMembers() {
 
@@ -615,9 +595,7 @@ function displayMembers() {
 }
 
 
-// =====================================
-// UPDATE MEMBER COUNT
-// =====================================
+//update member count in the dashboard
 
 function updateMemberDashboard() {
 
@@ -629,18 +607,14 @@ function updateMemberDashboard() {
 }
 
 
-// =====================================
-// VIEW MEMBERS BUTTON
-// =====================================
+// view members button
 
 function showMembers() {
 
     loadMembers();
 
 }
-// =====================================
-// BORROW BOOK
-// =====================================
+// borrow book
 
 document
     .getElementById("borrowForm")
@@ -686,9 +660,7 @@ alert(message);
         }
 
     });
-// =====================================
-// RETURN BOOK
-// =====================================
+// return book
 
 document
     .getElementById("returnForm")
@@ -782,96 +754,52 @@ async function sortBooks(type){
 
 }
 
-// BORROW BOOK
-
-document
-.getElementById("borrowForm")
-.addEventListener("submit", async function(event) {
-
-    event.preventDefault();
-
-    const memberId =
-        document.getElementById("borrowMemberId").value;
-
-    const bookId =
-        document.getElementById("borrowBookId").value;
-
-
-    try {
-
-        const response = await fetch(
-            `http://localhost:8080/books/borrow?memberId=${memberId}&bookId=${bookId}`,
-            {
-                method: "POST"
-            }
-        );
-
-
-        const message = await response.text();
-
-        alert(message);
-
-        document.getElementById("borrowForm").reset();
-
-        loadBooks();
-
-
-    } catch(error) {
-
-        console.error(error);
-
-        alert("Could not borrow book.");
-
-    }
-
-});
-
 
 // RETURN BOOK
 
-document
-.getElementById("returnForm")
-.addEventListener("submit", async function(event) {
+// document
+// .getElementById("returnForm")
+// .addEventListener("submit", async function(event) {
 
-    event.preventDefault();
-
-
-    const memberId =
-        document.getElementById("returnMemberId").value;
+//     event.preventDefault();
 
 
-    const bookId =
-        document.getElementById("returnBookId").value;
+//     const memberId =
+//         document.getElementById("returnMemberId").value;
 
 
-    try {
-
-        const response = await fetch(
-            `http://localhost:8080/books/return?memberId=${memberId}&bookId=${bookId}`,
-            {
-                method: "POST"
-            }
-        );
+//     const bookId =
+//         document.getElementById("returnBookId").value;
 
 
-        const message = await response.text();
+//     try {
 
-        alert(message);
+//         const response = await fetch(
+//             `http://localhost:8080/books/return?memberId=${memberId}&bookId=${bookId}`,
+//             {
+//                 method: "POST"
+//             }
+//         );
 
-        document.getElementById("returnForm").reset();
 
-        loadBooks();
+//         const message = await response.text();
+
+//         alert(message);
+
+//         document.getElementById("returnForm").reset();
+
+//         loadBooks();
 
 
-    } catch(error) {
+//     } catch(error) {
 
-        console.error(error);
+//         console.error(error);
 
-        alert("Could not return book.");
+//         alert("Could not return book.");
 
-    }
+//     }
 
-});
+// });
 // =====================================
 // LOAD DATA WHEN PAGE OPENS
 // =====================================

@@ -66,32 +66,12 @@ public class Library {
             }
         }
 
-//        for (Map.Entry<String, Book> entry : books.entrySet()) {
-//            Book book=entry.getValue();
-//
-//            if (book.getTitle().contains(keyword)){
-//                System.out.println("Book ID: " + entry.getKey());
-//                book.displayBook();
-//
-//                found=true;
-//            }
-//        }
         if (!found){
             System.out.println("No books found");
         }
 
     }
-    //    public void displayAllBooks(){
-//
-//        if (books.isEmpty()){
-//            System.out.println("no books in the library");
-//            return;
-//        }
-//
-//        for (Map.Entry<String,Book> entry:books.entrySet()){
-//            entry.getValue().displayBook();
-//        }
-//    }
+
     public void displayAllBooks() {
         System.out.println("Number of books: " + books.size());
         if (books.isEmpty()) {
@@ -114,10 +94,7 @@ public class Library {
         for (Map.Entry<String, Member> stringMemberEntry : members.entrySet()) {
             stringMemberEntry.getValue().displayMember();
         }
-        //or
-//        for(Member member : members.values()){
-//            member.displayMember();
-//        }
+     
     }
     public void removeBook(String id){
 
@@ -134,26 +111,7 @@ public class Library {
             System.out.println("book not exist");
         }
     }
-//        if (books.remove(id).isAvailable()){
-//            System.out.println("removed successfully");
-//        }else {
-//
-//        }
-    
-    //this is comment because now we hv to cll wht member is borrow the book
-//    public void borrowBooks(String id){
-//        Book book=books.get(id);
-//
-//        if (book ==null){
-//            System.out.println("book not found");
-//        }else if (!book.isAvailable()){
-//            System.out.println("Book already borrowed");
-//        }else {
-//book.borrow();
-//            System.out.println("Book borrowed successfully");
-//
-//        }
-//    }
+
     public String borrowBook(String memberId, String bookId){
         Book book=books.get(bookId);
         Member member=members.get(memberId);
@@ -171,19 +129,6 @@ public class Library {
         }
     }
 
-    //update this below
-//    public void returnBook(String id){
-//        Book book=books.get(id);
-//
-//        if (book == null){
-//            System.out.println("not exist");
-//        }else if (book.isAvailable()){
-//            System.out.println("already available");
-//        }else {
-//            book.returnBook();
-//            System.out.println("return successfully");
-//        }
-//    }
     public String returnBook(String memberId, String bookId){
         Book book=books.get(bookId);
         Member member=members.get(memberId);
