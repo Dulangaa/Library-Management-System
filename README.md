@@ -5,14 +5,23 @@ A web-based Library Management System developed using **HTML, CSS, JavaScript, J
 ## 🚀 Features
 
 * 📚 Add new books
-* 🔍 Search books by title, author, or category
+* 🗑️ Delete books
+* 🔍 Search books by title, author, or ID
 * 📖 View all books
 * 👤 Manage library members
 * 📥 Borrow books
 * 📤 Return books
+* ↕️ Sort books by title, author, or category
 * 📊 Display the total number of books
 * 📊 Display borrowed book count
 * 🔗 Frontend connected to a Spring Boot REST API
+
+## 🧠 Data Structures & Algorithms
+
+* **HashMap** – used to store and manage books and members
+* **ArrayList** – used to manage book collections
+* **Selection Sort** – implemented to sort books by title, author, and category
+* **Searching** – implemented to find books by ID, title, and author
 
 ## 🛠️ Technologies Used
 
@@ -29,26 +38,29 @@ A web-based Library Management System developed using **HTML, CSS, JavaScript, J
 * REST API
 * Maven
 
-### Data Structures
+### Tools
 
-* HashMap
-* ArrayList
+* IntelliJ IDEA
+* Visual Studio Code
+* Git & GitHub
 
 ## 📁 Project Structure
 
-```text
-Library-Management-System
-│
-├── backend
-│   ├── src
-│   ├── pom.xml
-│   └── ...
-│
-├── index.html
-├── style.css
-├── script.js
-└── README.md
-```
+Library-Management-System 
+|
+│├── backend 
+│    └── Spring Boot Application 
+│      ├── controller 
+│      ├── service 
+│      └── model 
+|
+│├── frontend 
+│   ├── index.html 
+│   ├── style.css 
+│   └── script.js 
+|
+│└── README.md
+
 
 ## ▶️ How to Run
 
@@ -82,5 +94,4 @@ The frontend communicates with the backend using:
 **Dulanga**
 
 Electronics and Computer Science Undergraduate
-
 University of Kelaniya, Sri Lanka
